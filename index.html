@@ -4,10 +4,58 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&family=Oswald&family=Roboto:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
     <title>My list</title>
   </head>
-  <body>
+  <body  >
+  <div class="container">
+    <!-- START HEADER SECTION -->
+    <header> 
+      <i class="fas fa-moon toggle-btn"></i>
+    </header>
+    <!-- END HEADER SECTION -->
+    <!-- START ADD TASK SECTION -->
+     <section class="add-task">
+        <h1>Manage Your Tasks</h1>
+        <form>
+         <input type="text" name="item" placeholder="Write Your Task" />
+         <button><i class="fas fa-plus-circle"></i></button> 
+        </form>
+     </section>
+    <!-- END ADD TASK SECTION -->
+     <!-- START TASK's SECTION -->
+     <section class="tasks">
+       <ul> 
+           <li>
+             <button class="check"><i class="fas fa-check"></i></button>
+             <span>Task1</span>
+             <button class="edit"><i class="fas fa-pencil-alt"></i></button>
+             <button class="delete"><i class="fas fa-trash-alt"></i></button>
+           </li>
+           <li>
+             <button class="check"><i class="fas fa-check"></i></button>
+             <span>Task2</span>
+             <button class="edit"><i class="fas fa-pencil-alt"></i></button>
+             <button class="delete"><i class="fas fa-trash-alt"></i></button>
+           </li>
+            <li>
+             <button class="check"><i class="fas fa-check"></i></button>
+             <span class="checked ">Task3</span>
+             <button class="edit"><i class="fas fa-pencil-alt"></i></button>
+             <button class="delete"><i class="fas fa-trash-alt"></i></button>
+           </li>
+       </ul>
+     </section>
+    <!-- END TASK's SECTION -->
+    <!-- START ACTION SECTION -->
+      <section class="action">
+        <button class="delete-all">Delete All</button>
+        <button class="task-num">Task Number</button>
+      </section>
+    <!-- END ACTION SECTION -->
+    </div>
     <script src="./script.js"></script>
   </body>
 </html>
