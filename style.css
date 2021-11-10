@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --bg-c:#909AF4;
+    --add-icon:#192CDC;
+    --delete-icon:#FB6A6A;
+    --edit-icon:#42C542;
+    --checked-icon:#4D4ACF;
+    --text-c:#4D4ACF;
+    --heading-color:#1e202a;
+}
+.dark{
+    --bg-c:#252a41;
+    --add-icon:#192CDC;
+    --delete-icon:#FB6A6A;
+    --edit-icon:#42C542;
+    --checked-icon:#4D4ACF;
+    --text-c:#4D4ACF;
+    --heading-color:#8b97c6;
+}
+.container {
+    width:1000px;
+    margin: 0 auto;
+    position: relative;
+}
+body {
+    background-color: var(--bg-c);
+    font-family: 'Oswald', sans-serif;
+}
+/* START HEADER SECTION STYLE */
+
+header i {
+    cursor: pointer;
+    position: absolute;
+    top:10px;
+    right:10px;
+    font-size: 20px;
+    color:var(--heading-color);
+    transform: rotate(-20deg);
+    -webkit-transform: rotate(-20deg);
+    -moz-transform: rotate(-20deg);
+    -ms-transform: rotate(-20deg);
+    -o-transform: rotate(-20deg);
+}
+/* END HEADER SECTION STYLE */
+
+
+/* START ADD TASK SECTION STYLE */
+.add-task {
+    text-align: center;
+    padding-top: 50px; 
+}
+.add-task h1 {
+    margin-bottom: 50px;
+    font-size: 40px;
+    color: #fff;
+}
+.add-task form {
+   width : 700px;
+   margin: 0 auto;
+   position: relative;
+}
+.add-task form input {
+        height: 50px;
+        width: 700px;
+        border: none;
+        outline: none;
+        transition: .3 border ease-out;
+        padding-left: 20px;
+        color: var(--text-c);
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        border-radius: 10px 25px 25px 10px ;
+        -webkit-border-radius: 10px 25px 25px 10px ;
+        -moz-border-radius: 10px 25px 25px 10px ;
+        -ms-border-radius: 10px 25px 25px 10px ;
+        -o-border-radius: 10px 25px 25px 10px ;
+        -webkit-transition: .3 border ease-out;
+        -moz-transition: .3 border ease-out;
+        -ms-transition: .3 border ease-out;
+        -o-transition: .3 border ease-out;
+}
+.add-task form input:focus,.add-task form input:hover {
+    border: 1px solid var(--add-icon);
+}
+.add-task form input::placeholder {
+    color: var(--text-c);
+    font-size: 16px;
+}
+.add-task form button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 50px;
+    padding: 0;
+}
+.add-task form button i {
+  
+  font-size: 50px;
+  color: var(--add-icon);
+}
+/* END ADD TASK SECTION STYLE*/
+
+/* START TASK's SECTION STYLE */
+.tasks {
+    width: 700px;
+    margin: 10px auto;
+}
+.tasks ul{
+ list-style: none;
+}
+.tasks li{
+    position: relative;
+    background-color: #fff;
+    height: 40px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 10px 25px 25px 10px;
+    -webkit-border-radius: 10px 25px 25px 10px;
+    -moz-border-radius: 10px 25px 25px 10px;
+    -ms-border-radius: 10px 25px 25px 10px;
+    -o-border-radius: 10px 25px 25px 10px;
+}
+.tasks li span {
+    color: var(--text-c);
+    font-size: 18px;
+    margin-left: 10px;
+}
+.tasks li button{
+    background-color: transparent;
+    border: none; 
+    cursor: pointer;
+} 
+.tasks li button i {
+    font-size: 18px;
+}
+.tasks li button.check i {
+    color: var(--checked-icon);
+}
+.tasks li button.edit i {
+    position: absolute;
+    right: 45px;
+    top: 10px;
+    color: var(--edit-icon);
+}
+.tasks li button.delete i {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    color: var(--delete-icon);
+}
+.checked {
+    font-style: italic;
+    text-decoration: line-through;
+}
+/* END TASK's SECTION STYLE */
+
+/* START ACTION SECTION STYLE */
+.action {
+   padding-top: 10px;
+   width: 700px;
+   margin: 0 auto;
+}
+.action button {
+    width: 348px;
+    padding: 20px 0;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+.action button.delete-all {
+     background-color: #ff0000;
+     border: 1px solid #ff0000;
+}
+.action button.task-num {
+    background-color: var(--add-icon);
+    border: 1px solid var(--add-icon);
+}
+/* END ACTION SECTION STYLE */
