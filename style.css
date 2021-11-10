@@ -26,6 +26,16 @@
     margin: 0 auto;
     position: relative;
 }
+@media (max-width:768px) {
+    .container {
+        width:500px;
+    }
+}
+@media (min-width:769px) and (max-width:1023px) {
+    .container {
+        width:700px;
+    }
+}
 body {
     background-color: var(--bg-c);
     font-family: 'Oswald', sans-serif;
@@ -104,6 +114,22 @@ header i {
   font-size: 50px;
   color: var(--add-icon);
 }
+@media (max-width:768px) {
+    .add-task form  {
+        width:400px;
+    }
+    .add-task form input {
+        width:400px;
+    }
+}
+@media (min-width:769px) and (max-width:1023px) {
+    .add-task form  {
+        width:550px;
+    }
+    .add-task form input {
+        width:550px;
+    }
+}
 /* END ADD TASK SECTION STYLE*/
 
 /* START TASK's SECTION STYLE */
@@ -158,6 +184,16 @@ header i {
     font-style: italic;
     text-decoration: line-through;
 }
+@media (max-width:768px) {
+    .tasks  {
+        width:400px;
+    } 
+}
+@media (min-width:769px) and (max-width:1023px) {
+    .tasks  {
+        width:550px;
+    }
+}
 /* END TASK's SECTION STYLE */
 
 /* START ACTION SECTION STYLE */
@@ -167,6 +203,7 @@ header i {
    margin: 0 auto;
 }
 .action button {
+    cursor: pointer;
     width: 348px;
     padding: 20px 0;
     color: #fff;
@@ -186,4 +223,22 @@ header i {
     background-color: var(--add-icon);
     border: 1px solid var(--add-icon);
 }
+@media (max-width:768px) {
+    .action  {
+        width:400px;
+    }
+    .action button {
+        width: 400px;
+        margin-bottom: 10px;
+    }
+}
+@media (min-width:769px) and (max-width:1023px) {
+    .action  {
+        width:550px;
+    }
+    .action button {
+        width: 273px;
+    }
+}
+   
 /* END ACTION SECTION STYLE */
