@@ -166,6 +166,9 @@ header i {
     font-size: 18px;
 }
 .tasks li button.check i {
+    position: absolute;
+    right: 70px;
+    top: 10px;
     color: var(--checked-icon);
 }
 .tasks li button.edit i {
