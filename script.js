@@ -33,22 +33,23 @@ const update = (index) => {
   let editInput = li.querySelector(".edit-input");
   let spanBox = li.querySelector(".task-value");
 
-  if (li.classList.contains("edit-mood")) {
+  if (li.classList.contains("edit-mode")) {
     editInput.style.display = "none";
     spanBox.style.display = "inline-block";
     let newTaskValue = editInput.value;
     spanBox.innerText = newTaskValue;
-    li.classList.remove("edit-mood");
+    li.classList.remove("edit-mode");
   } else {
     editInput.style.display = "inline-block";
     spanBox.style.display = "none";
     editInput.value = spanBox.innerText;
-    li.classList.add("edit-mood");
+    li.classList.add("edit-mode");
   }
 };
 function check(index) {
   //add checked class to task
-  document.getElementById(index).classList.add("checked");
+  let checkSpan=document.getElementById(`task-${index}`).childNodes[1].childNodes[1];
+   checkSpan.classList.toggle('checked')
 }
 // Run this function when Button delete is checked
 
