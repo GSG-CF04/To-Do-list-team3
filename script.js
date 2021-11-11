@@ -71,3 +71,10 @@ document.querySelectorAll('li').forEach((ele)=>{ele.remove()})
 
 }
 
+let lenBtn=document.querySelector('.task-num')
+lenBtn.addEventListener('click',taskNumber)
+function taskNumber(){
+  let ul =document.querySelector('ul')
+  let list=document.querySelectorAll('ul li')
+   alert(`you have ${list.length} task`)
+}
