@@ -47,7 +47,7 @@ header i {
   position: absolute;
   top: 10px;
   right: 10px;
-  font-size: 20px;
+  font-size: 1.5rem;
   color: var(--heading-color);
   transform: rotate(-20deg);
   -webkit-transform: rotate(-20deg);
@@ -64,17 +64,17 @@ header i {
 }
 .add-task h1 {
   margin-bottom: 50px;
-  font-size: 40px;
+  font-size: 3rem;
   color: #fff;
 }
 .add-task form {
-  width: 700px;
+  width: 70%;
   margin: 0 auto;
   position: relative;
 }
 .add-task form input {
   height: 50px;
-  width: 700px;
+  width: 100%;
   border: none;
   outline: none;
   transition: 0.3 border ease-out;
@@ -97,7 +97,7 @@ header i {
 }
 .add-task form input::placeholder {
   color: var(--text-c);
-  font-size: 16px;
+  font-size: 1rem;
 }
 .add-task form button {
   cursor: pointer;
@@ -110,30 +110,30 @@ header i {
   padding: 0;
 }
 .add-task form button i {
-  font-size: 50px;
+  font-size: 3rem;
   color: var(--add-icon);
 }
 @media (max-width: 768px) {
   .add-task form {
-    width: 400px;
+    width: 90%;
   }
   .add-task form input {
-    width: 400px;
+    width: 100%;
   }
 }
 @media (min-width: 769px) and (max-width: 1023px) {
   .add-task form {
-    width: 550px;
+    width: 85%;
   }
   .add-task form input {
-    width: 550px;
+    width: 100%;
   }
 }
 /* END ADD TASK SECTION STYLE*/
 
 /* START TASK's SECTION STYLE */
 .tasks {
-  width: 700px;
+  width: 70%;
   margin: 10px auto;
 }
 .tasks ul {
@@ -152,7 +152,7 @@ header i {
 }
 .tasks li span {
   color: var(--text-c);
-  font-size: 18px;
+  font-size: 1.2rem;
   margin-left: 10px;
 }
 .tasks li button {
@@ -161,7 +161,7 @@ header i {
   cursor: pointer;
 }
 .tasks li button i {
-  font-size: 18px;
+  font-size: 1.2rem;
 }
 .tasks li button.check i {
   position: absolute;
@@ -187,12 +187,12 @@ header i {
 }
 @media (max-width: 768px) {
   .tasks {
-    width: 400px;
+    width: 90%;
   }
 }
 @media (min-width: 769px) and (max-width: 1023px) {
   .tasks {
-    width: 550px;
+    width: 85%;
   }
 }
 /* END TASK's SECTION STYLE */
@@ -200,7 +200,7 @@ header i {
 /* START ACTION SECTION STYLE */
 .action {
   padding-top: 10px;
-  width: 700px;
+  width: 70%;
   margin: 0 auto;
 }
 .action button {
@@ -208,7 +208,7 @@ header i {
   width: 348px;
   padding: 20px 0;
   color: #fff;
-  font-size: 20px;
+  font-size: 1.3rem;
   font-weight: bold;
   border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -226,19 +226,19 @@ header i {
 }
 @media (max-width: 768px) {
   .action {
-    width: 400px;
+    width: 90%;
   }
   .action button {
-    width: 400px;
+    width: 100%;
     margin-bottom: 10px;
   }
 }
 @media (min-width: 769px) and (max-width: 1023px) {
   .action {
-    width: 550px;
+    width: 85%;
   }
   .action button {
-    width: 273px;
+    width: 49%;
   }
 }
 
@@ -246,7 +246,7 @@ header i {
 .edit-input {
   margin: 0;
   position: absolute;
-  font-size: 18px;
+  font-size: 1.2rem;
   line-height: 18px;
   height: 30px;
   padding: 10px;
@@ -255,9 +255,13 @@ header i {
   border-radius: 6px;
   color: #888;
   display: none;
-  margin-top: 7px;
-  display: none;
-  width:50px;
+  padding-top: -10px;
+  min-width: 50%;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  position: absolute;
 }
 .edit-input:focus {
   border: none;

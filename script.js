@@ -1,6 +1,7 @@
 let formInput = document.querySelector(".form-input"); //the add button
 let formBtn = document.querySelector(".form-btn"); //the input task
 let taskList = document.querySelector(".tasks-list"); //the whole list
+let list=document.querySelector('ul li')
 let form = document.querySelector(".submit-form");
 let myTask; //the task
 let tasks = []; //array for all tasks
@@ -55,19 +56,18 @@ function check(index) {
 
 // DELETE FUNCTION
 function deleteTask(index) {
-
   // Now we delete that tast which we have slided out
   document.getElementById(`task-${index}`).remove();
-  //tasks.pop(myTask);
-
 }
 
 //DELETE ALL FUNCTION
 document.querySelector('.delete-all').addEventListener('click', deleteAll)
 function deleteAll(){
-document.querySelectorAll('li').forEach((ele)=>{ele.remove()})
-
-//tasks = []
-
+  list.forEach((ele)=>{ele.remove()})
 }
 
+let lenBtn=document.querySelector('.task-num')
+lenBtn.addEventListener('click',taskNumber)
+function taskNumber(){
+   alert(`you have ${list.length} task`)
+}
