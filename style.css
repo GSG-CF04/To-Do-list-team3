@@ -255,6 +255,8 @@ header i {
   border-radius: 6px;
   color: #888;
   display: none;
+  margin-top: 7px;
+  display: inline-block;
 }
 .edit-input:focus {
   border: none;

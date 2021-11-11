@@ -50,3 +50,23 @@ function check(index) {
   //add checked class to task
   document.getElementById(index).classList.add("checked");
 }
+// Run this function when Button delete is checked
+
+// DELETE FUNCTION
+function deleteTask(index) {
+
+  // Now we delete that tast which we have slided out
+  document.getElementById(`task-${index}`).remove();
+  //tasks.pop(myTask);
+
+}
+
+//DELETE ALL FUNCTION
+document.querySelector('.delete-all').addEventListener('click', deleteAll)
+function deleteAll(){
+document.querySelectorAll('li').forEach((ele)=>{ele.remove()})
+
+//tasks = []
+
+}
+
