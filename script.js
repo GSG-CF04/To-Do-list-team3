@@ -56,20 +56,14 @@ function check(index) {
 
 // DELETE FUNCTION
 function deleteTask(index) {
-
   // Now we delete that tast which we have slided out
   document.getElementById(`task-${index}`).remove();
-  //tasks.pop(myTask);
-
 }
 
 //DELETE ALL FUNCTION
 document.querySelector('.delete-all').addEventListener('click', deleteAll)
 function deleteAll(){
   list.forEach((ele)=>{ele.remove()})
-
-//tasks = []
-
 }
 
 let lenBtn=document.querySelector('.task-num')
