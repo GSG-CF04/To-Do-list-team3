@@ -1,6 +1,7 @@
 let formInput = document.querySelector(".form-input"); //the add button
 let formBtn = document.querySelector(".form-btn"); //the input task
 let taskList = document.querySelector(".tasks-list"); //the whole list
+let list=document.querySelector('ul li')
 let form = document.querySelector(".submit-form");
 let myTask; //the task
 let tasks = []; //array for all tasks
@@ -65,7 +66,7 @@ function deleteTask(index) {
 //DELETE ALL FUNCTION
 document.querySelector('.delete-all').addEventListener('click', deleteAll)
 function deleteAll(){
-document.querySelectorAll('li').forEach((ele)=>{ele.remove()})
+  list.forEach((ele)=>{ele.remove()})
 
 //tasks = []
 
@@ -74,7 +75,5 @@ document.querySelectorAll('li').forEach((ele)=>{ele.remove()})
 let lenBtn=document.querySelector('.task-num')
 lenBtn.addEventListener('click',taskNumber)
 function taskNumber(){
-  let ul =document.querySelector('ul')
-  let list=document.querySelectorAll('ul li')
    alert(`you have ${list.length} task`)
 }
