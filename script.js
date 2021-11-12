@@ -7,19 +7,22 @@ let myTask; //the task
 let tasks = []; //array for all tasks
 let storedTasks = []; //for local storage
 // add function for local storage
-const addToLocalStorage = function (task) {
-  storedTasks.push({ name: task, check: false, numberOfTasks: tasks.length });
+const addToLocalStorage = function (task, index) {
+  storedTasks.push({ name: task, check: false, numberOfTasks: index });
   localStorage.setItem("tasks", JSON.stringify(storedTasks));
 };
 // remove function from local storage
-const removeFromLocalStorage = function (task) {
-  storedTasks.splice(task, 1);
-  localStorage.setItem("tasks", JSON.stringify(storedTasks));
+const removeFromLocalStorage = function (numberOfTasks) {
+  let newStoredTask = storedTasks.filter(
+    (item) => item.numberOfTasks !== numberOfTasks
+  );
+  storedTasks = newStoredTask;
+  localStorage.setItem("tasks", JSON.stringify(newStoredTask));
 };
-const addTask = function (task, index) {
+const addTask = function (task, index, checked) {
   myTask = `<li id="task-${index}">
 <span class='task-container'>
-<span class="task-value"> ${task} </span>
+<span class="task-value  ${checked ? "checked" : ""}"> ${task} </span>
 <input class='edit-input'/>
 <button class="check" onclick="check(${index})"><i class="fas fa-check"></i></button>
 <button class="edit" onclick="update(${index})"><i class="fas fa-pencil-alt"></i></button>
@@ -35,11 +38,12 @@ form.addEventListener("submit", (e) => {
   e.preventDefault(); //to prevent the page from reloading
   if (formInput.value === "") return; // to prevent addding empty tasks
   //define task
-  addTask(formInput.value, tasks.length);
+  let index = tasks.length;
+  addTask(formInput.value, index);
   //add task to whole list
 
   // local storage function place
-  addToLocalStorage(formInput.value);
+  addToLocalStorage(formInput.value, index);
   // clearing the input field
   formInput.value = "";
 });
@@ -62,7 +66,8 @@ const update = (index) => {
 
     editInput.value = spanBox.innerText;
     editInput.addEventListener("change", () => {
-      storedTasks[index].name = editInput.value;
+      let objectIndex = storedTasks.findIndex((i) => i.numberOfTasks == index); //find the object index within array using the numberOfTask
+      storedTasks[objectIndex].name = editInput.value;
       localStorage.setItem("tasks", JSON.stringify(storedTasks));
     });
     li.classList.add("edit-mode");
@@ -73,20 +78,21 @@ function check(index) {
   let checkSpan = document.getElementById(`task-${index}`).childNodes[1]
     .childNodes[1];
   checkSpan.classList.toggle("checked");
-  storedTasks[index].check = true;
+  let objectIndex = storedTasks.findIndex((i) => i.numberOfTasks == index);
+  storedTasks[objectIndex].check = !storedTasks[objectIndex].check; // negation of previous value
   localStorage.setItem("tasks", JSON.stringify(storedTasks));
 }
 // Run this function when Button delete is checked
 
 // DELETE FUNCTION
-function deleteTask(index) {
+function deleteTask(numberOfTasks) {
   // Now we delete that tast which we have slided out
-  let deletedELment = document.getElementById(`task-${index}`);
-  tasks.splice(index, 1);
+  let deletedELment = document.getElementById(`task-${numberOfTasks}`);
+  let newTasks = tasks.filter((item) => item.numberOfTasks !== numberOfTasks);
+  tasks = newTasks;
   let deletedTask = deletedELment.childNodes[1].childNodes[1];
   deletedELment.remove();
-
-  removeFromLocalStorage({ name: deletedTask, check: false });
+  removeFromLocalStorage(numberOfTasks);
 }
 
 //DELETE ALL FUNCTION
@@ -109,6 +115,6 @@ window.onload = () => {
   let printedtasks = JSON.parse(localStorage.getItem("tasks")) || []; // Empty array in case there is no Tasks key in localStorage
   storedTasks = printedtasks;
   printedtasks.map((ele, index) => {
-    addTask(ele.name, index);
+    addTask(ele.name, ele.numberOfTasks, ele.check);
   });
 };
