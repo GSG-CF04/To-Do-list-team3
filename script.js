@@ -16,26 +16,26 @@ const removeFromLocalStorage = function (task) {
   storedTasks.splice(task, 1);
   localStorage.setItem("tasks", JSON.stringify(storedTasks));
 };
-const addTask = function (task) {
-  myTask = `<li id="task-${tasks.length}">
+const addTask = function (task, index) {
+  myTask = `<li id="task-${index}">
 <span class='task-container'>
 <span class="task-value"> ${task} </span>
 <input class='edit-input'/>
-<button class="check" onclick="check(${tasks.length})"><i class="fas fa-check"></i></button>
-<button class="edit" onclick="update(${tasks.length})"><i class="fas fa-pencil-alt"></i></button>
-<button class="delete" onclick="deleteTask(${tasks.length})" ><i class="fas fa-trash-alt"></i></button>
+<button class="check" onclick="check(${index})"><i class="fas fa-check"></i></button>
+<button class="edit" onclick="update(${index})"><i class="fas fa-pencil-alt"></i></button>
+<button class="delete" onclick="deleteTask(${index})" ><i class="fas fa-trash-alt"></i></button>
 </span>
 </li>
 `;
-
-  tasks.push(myTask);
   taskList.insertAdjacentHTML("afterbegin", myTask);
+  tasks.push({ name: task, check: false, numberOfTasks: index });
 };
+
 form.addEventListener("submit", (e) => {
   e.preventDefault(); //to prevent the page from reloading
   if (formInput.value === "") return; // to prevent addding empty tasks
   //define task
-  addTask(formInput.value);
+  addTask(formInput.value, tasks.length);
   //add task to whole list
 
   // local storage function place
@@ -106,9 +106,9 @@ function taskNumber() {
 
 // we have tried to work on the reload but there is a problem due to the tasks array that we giong to fix
 window.onload = () => {
-  let printedtasks = JSON.parse(localStorage.getItem("tasks"));
-
-  printedtasks.map((ele) => {
-    addTask(ele.name);
+  let printedtasks = JSON.parse(localStorage.getItem("tasks")) || []; // Empty array in case there is no Tasks key in localStorage
+  storedTasks = printedtasks;
+  printedtasks.map((ele, index) => {
+    addTask(ele.name, index);
   });
 };
