@@ -3,6 +3,7 @@ let formBtn = document.querySelector(".form-btn"); //the input task
 let taskList = document.querySelector(".tasks-list"); //the whole list ul
 let form = document.querySelector(".submit-form");
 let lenBtn = document.querySelector(".task-num");
+let taskNumber= document.querySelector('.number-task') //the number task
 let myTask; //the task
 let tasks = []; //array for all tasks
 let storedTasks = []; //for local storage
@@ -22,9 +23,9 @@ const removeFromLocalStorage = function (numberOfTasks) {
 const addTask = function (task, index, checked) {
   myTask = `<li id="task-${index}">
 <span class='task-container'>
+<button class="check" onclick="check(${index})"><i class="fas fa-check"></i></button>
 <span class="task-value  ${checked ? "checked" : ""}"> ${task} </span>
 <input class='edit-input'/>
-<button class="check" onclick="check(${index})"><i class="fas fa-check"></i></button>
 <button class="edit" onclick="update(${index})"><i class="fas fa-pencil-alt"></i></button>
 <button class="delete" onclick="deleteTask(${index})" ><i class="fas fa-trash-alt"></i></button>
 </span>
@@ -44,6 +45,8 @@ form.addEventListener("submit", (e) => {
 
   // local storage function place
   addToLocalStorage(formInput.value, index);
+   //define Task Number 
+   taskNumber.innerText=tasks.length
   // clearing the input field
   formInput.value = "";
 });
@@ -62,8 +65,8 @@ const update = (index) => {
     li.classList.remove("edit-mode");
   } else {
     editInput.style.display = "inline-block";
+    editInput.style.marginTop = "7px";
     spanBox.style.display = "none";
-
     editInput.value = spanBox.innerText;
     editInput.addEventListener("change", () => {
       let objectIndex = storedTasks.findIndex((i) => i.numberOfTasks == index); //find the object index within array using the numberOfTask
@@ -76,8 +79,8 @@ const update = (index) => {
 function check(index) {
   //add checked class to task
   let checkSpan = document.getElementById(`task-${index}`).childNodes[1]
-    .childNodes[1];
-  checkSpan.classList.toggle("checked");
+    .childNodes[3];
+  checkSpan.classList.add("checked");
   let objectIndex = storedTasks.findIndex((i) => i.numberOfTasks == index);
   storedTasks[objectIndex].check = !storedTasks[objectIndex].check; // negation of previous value
   localStorage.setItem("tasks", JSON.stringify(storedTasks));
@@ -93,6 +96,8 @@ function deleteTask(numberOfTasks) {
   let deletedTask = deletedELment.childNodes[1].childNodes[1];
   deletedELment.remove();
   removeFromLocalStorage(numberOfTasks);
+    //define Task Number 
+    taskNumber.innerText=tasks.length
 }
 
 //DELETE ALL FUNCTION
@@ -104,10 +109,8 @@ function deleteAll() {
   storedTasks = [];
   tasks = [];
   localStorage.setItem("tasks", JSON.stringify(storedTasks));
-}
-lenBtn.addEventListener("click", taskNumber);
-function taskNumber() {
-  alert(`you have ${tasks.length} tasks`);
+   //define Task Number 
+   taskNumber.innerText=tasks.length
 }
 
 // we have tried to work on the reload but there is a problem due to the tasks array that we giong to fix
@@ -117,6 +120,8 @@ window.onload = () => {
   printedtasks.map((ele, index) => {
     addTask(ele.name, ele.numberOfTasks, ele.check);
   });
+   //define Task Number 
+   taskNumber.innerText=tasks.length
 };
 //! dark and light theme toggle
 
