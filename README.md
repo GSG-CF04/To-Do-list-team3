@@ -52,10 +52,15 @@ https://gsg-cf04.github.io/To-Do-list-team3/
 ![](https://i.imgur.com/RAMIcK7.png)
 ## final design :point_down:
 -Desktop Design
-![](https://i.imgur.com/HKdi6Sh.png)
+
+![](https://i.imgur.com/C7x0Etn.png)
+
 
 -Mobile Design
-![](https://i.imgur.com/ayelyPU.png)
+
+![](https://i.imgur.com/LohQ2Tb.png)
+
 
 -Dark Mode
-![](https://i.imgur.com/pw11hxm.png)
+
+![](https://i.imgur.com/59FVhkY.png)

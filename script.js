@@ -84,6 +84,8 @@ function check(index) {
   let objectIndex = storedTasks.findIndex((i) => i.numberOfTasks == index);
   storedTasks[objectIndex].check = !storedTasks[objectIndex].check; // negation of previous value
   localStorage.setItem("tasks", JSON.stringify(storedTasks));
+  let checkBtn = document.getElementById(`task-${index}`).childNodes[1].childNodes[1];
+  checkBtn.onclick = ""
 }
 // Run this function when Button delete is checked
 
@@ -115,10 +117,21 @@ function deleteAll() {
 
 // we have tried to work on the reload but there is a problem due to the tasks array that we giong to fix
 window.onload = () => {
+  // console.log(checkBtn)
+  // checkBtn.disabled = true
+ 
   let printedtasks = JSON.parse(localStorage.getItem("tasks")) || []; // Empty array in case there is no Tasks key in localStorage
   storedTasks = printedtasks;
   printedtasks.map((ele, index) => {
-    addTask(ele.name, ele.numberOfTasks, ele.check);
+    
+    if (ele.check == true) {
+      addTask(ele.name, ele.numberOfTasks, ele.check);
+      let checkBtn = document.getElementById(`task-${index}`).childNodes[1].childNodes[1];
+      checkBtn.onclick = ""
+    }else {
+      addTask(ele.name, ele.numberOfTasks, ele.check);
+    }
+   
   });
    //define Task Number 
    taskNumber.innerText=tasks.length
